@@ -1,0 +1,17 @@
+body {
+  font-feature-settings: "liga", "kern";
+}
+
+.post-title {
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+a:hover {
+  border-bottom-color: currentColor;
+}
+

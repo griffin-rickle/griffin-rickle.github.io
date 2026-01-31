@@ -1,0 +1,21 @@
+title: Griffin Rickle
+description: Writing about fitness, programming, and thinking clearly.
+author: Griffin Rickle
+
+theme: minima
+
+markdown: kramdown
+
+permalink: /:categories/:title/
+
+collections:
+  pages:
+    output: true
+
+plugins:
+  - jekyll-feed
+
+minima:
+  skin: auto
+  custom_css:
+    - /assets/css/custom.css
