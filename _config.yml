@@ -6,7 +6,7 @@ theme: minima
 
 markdown: kramdown
 
-permalink: /:categories/:title/
+permalink: /:title/
 
 collections:
   pages:

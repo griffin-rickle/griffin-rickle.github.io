@@ -1,7 +1,6 @@
 ---
 title: First Fitness Post
 date: 2026-01-31
-categories: [fitness]
 layout: default
 ---
 
