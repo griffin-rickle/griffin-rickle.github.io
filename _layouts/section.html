@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title }} · {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
+  </head>
+
+  <body>
+    <div class="layout">
+      {% include sidebar.html %}
+
+      <main class="content">
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}
+          <p class="section-description">{{ page.description }}</p>
+        {% endif %}
+
+        <ul class="post-list">
+          {% assign section_tags = page.filter_tags %}
+          {% for post in site.posts %}
+            {% assign matched = false %}
+            {% for tag in post.tags %}
+              {% if section_tags contains tag %}
+                {% assign matched = true %}
+              {% endif %}
+            {% endfor %}
+            {% if matched %}
+              <li class="post-list-item">
+                <h2 class="post-list-title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h2>
+                <div class="post-meta">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%B %d, %Y" }}
+                  </time>
+                </div>
+                {% if post.excerpt %}
+                  <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </main>
+    </div>
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const stored = localStorage.getItem("theme");
+
+        if (stored === "light" || stored === "dark") {
+          root.setAttribute("data-theme", stored);
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          root.setAttribute("data-theme", "dark");
+        } else {
+          root.setAttribute("data-theme", "light");
+        }
+
+        const toggle = document.getElementById("theme-toggle");
+        if (toggle) {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            const current = root.getAttribute("data-theme");
+            const next = current === "dark" ? "light" : "dark";
+            root.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -2,6 +2,7 @@
 title: Welcome! AKA an overshare about my preferred development toolset
 date: 2026-02-01
 layout: default
+tags: [programming]
 ---
 
 # Welcome!
