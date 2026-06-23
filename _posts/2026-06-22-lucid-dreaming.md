@@ -1,6 +1,6 @@
 ---
 title: Thoughts on Consciousness
-date: 2026-05-20
+date: 2026-06-22
 layout: default
 tags: [rant, philosophy]
 ---
